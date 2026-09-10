@@ -241,7 +241,7 @@ p {
   position: relative;
   min-height: 610px;
   display: grid;
-  grid-template-columns: 1.14fr 1fr;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   align-items: center;
   isolation: isolate;
 }
@@ -263,7 +263,9 @@ p {
 
 .hero-copy {
   position: relative;
-  z-index: 2;
+  z-index: 4;
+  width: 100%;
+  max-width: 585px;
   padding: 62px 0 54px;
 }
 
@@ -287,10 +289,11 @@ p {
 }
 
 .hero h1 {
+  max-width: 585px;
   font-size: clamp(3.4rem, 5.7vw, 5.2rem);
   line-height: 1.07;
   letter-spacing: -5px;
-  margin: 28px -170px 26px 0;
+  margin: 28px 0 26px;
   font-weight: 500;
 }
 
@@ -376,38 +379,40 @@ p {
 }
 
 .hero-art {
-  position: relative;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 41%;
+  right: calc(50% - 50vw);
+  width: auto;
+  height: auto;
   min-width: 0;
-  margin-right: -112px;
-  margin-left: -120px;
+  margin: 0;
   z-index: 1;
-  align-self: stretch;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .hero-studio-image {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
-  width: auto;
+  width: 100%;
   max-width: none;
   height: 100%;
   object-fit: cover;
-  object-position: right bottom;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 17%, #000 100%);
+  object-position: 48% bottom;
+  mask-image: none;
   filter: saturate(1.04) contrast(1.03);
 }
 
 .hero-art::after {
   content: "";
   position: absolute;
-  inset: 0 -112px 0 -120px;
+  inset: 0;
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, #080c13 0%, #080c13d8 10%, transparent 34%),
+    linear-gradient(90deg, #080c13 0%, #080c13f5 6%, #080c13cf 16%, #080c136b 27%, transparent 41%),
     linear-gradient(180deg, #080c135c 0%, transparent 16%, transparent 86%, #080c132e 100%);
 }
 
@@ -2628,12 +2633,12 @@ select:invalid {
     grid-template-columns: 1.04fr 0.96fr;
   }
   .hero-art {
-    height: auto;
-    margin-left: -85px;
-    margin-right: -36px;
+    left: 45%;
+    margin: 0;
   }
   .hero-studio-image {
     height: 100%;
+    object-position: 48% bottom;
   }
   .industry-band-inner {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2673,6 +2678,8 @@ select:invalid {
     align-items: start;
   }
   .hero-art {
+    position: relative;
+    inset: auto;
     width: 100%;
     min-height: 300px;
     aspect-ratio: 1.55;
@@ -2682,10 +2689,13 @@ select:invalid {
     overflow: hidden;
   }
   .hero-studio-image {
+    position: relative;
+    inset: auto;
     width: 128%;
     max-width: none;
     height: auto;
     margin-right: -18%;
+    object-position: center bottom;
     mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 100%);
   }
   .industry-band-inner {
