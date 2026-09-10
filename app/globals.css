@@ -407,8 +407,7 @@ p {
   );
 }
 
-.industry-band {
-  border-block: 1px solid var(--border);
+.industry-band{
   background: #0c111a;
 }
 
@@ -2250,7 +2249,7 @@ select:invalid {
 /* Industry band: the same background, with a restrained blue glow. */
 .industry-band {
   background: var(--background);
-  border-block: 1px solid #6b91ff26;
+  border: none;
 }
 .industry-band-inner {
   display: grid;
