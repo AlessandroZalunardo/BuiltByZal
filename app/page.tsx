@@ -4,11 +4,14 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  Monitor,
-  ShoppingBag,
-  RefreshCw,
-  Smartphone,
   Check,
+  House,
+  Leaf,
+  Monitor,
+  RefreshCw,
+  ShoppingBag,
+  Smartphone,
+  Wrench,
 } from "lucide-react";
 
 import { ClosingCTA, Eyebrow } from "@/components/site/shared";
@@ -55,57 +58,66 @@ const approach = [
   },
 ];
 
+const industries = [
+  { icon: Wrench, label: "Plumbing & trades" },
+  { icon: Leaf, label: "Landscaping" },
+  { icon: House, label: "Interior design" },
+  { icon: ShoppingBag, label: "Clothing & lifestyle" },
+];
+
 export default function Home() {
   return (
     <main id="main-content">
-      <section className="hero container">
-        <div className="hero-copy">
-          <Eyebrow>Independent web design & development</Eyebrow>
+      <section className="home-hero">
+        <div className="hero container">
+          <div className="hero-copy">
+            <Eyebrow>Independent web design & development</Eyebrow>
 
-          <h1>
-            Good business.
-            <br />
-            Great <span className="blue-text">website.</span>
-          </h1>
+            <h1>
+              Good business.
+              <br />
+              Great <span className="blue-text">website.</span>
+            </h1>
 
-          <p className="hero-description">
-            You put everything into your business.
-            <br className="desktop-break" />
-            Your website should show it.
-          </p>
+            <p className="hero-description">
+              You put everything into your business.
+              <br className="desktop-break" />
+              Your website should show it.
+            </p>
 
-          <p className="hero-detail">
-            Custom websites for service businesses, creative studios, and brands
-            ready for their next chapter.
-          </p>
+            <p className="hero-detail">
+              Custom websites for service businesses, creative studios, and brands
+              ready for their next chapter.
+            </p>
 
-          <div className="hero-actions">
-            <Link href="/contact" className="primary-button">
-              Let&apos;s build your website
-              <ArrowUpRight />
-            </Link>
+            <div className="hero-actions">
+              <Link href="/contact" className="primary-button">
+                Let&apos;s build your website
+                <ArrowUpRight />
+              </Link>
 
-            <Link className="text-link" href="/services">
-              Explore our services
-              <ArrowRight />
-            </Link>
+              <Link className="text-link" href="/services">
+                Explore our services
+                <ArrowRight />
+              </Link>
+            </div>
+
+            <div className="hero-note">
+              <span className="small-cross">+</span>
+              Thoughtfully designed. Personally built by Alessandro Zalunardo.
+            </div>
           </div>
 
-          <div className="hero-note">
-            <span className="small-cross">+</span>
-            Thoughtfully designed. Personally built by Alessandro Zalunardo.
+          <div className="hero-art" aria-hidden="true">
+            <Image
+              className="hero-studio-image"
+              src="/images/home-hero-studio.png"
+              alt=""
+              width={912}
+              height={585}
+              priority
+            />
           </div>
-        </div>
-
-        <div className="hero-art" aria-hidden="true">
-          <Image
-            src="/images/blue-sculpture.png"
-            alt=""
-            width={1536}
-            height={1024}
-            priority
-          />
-
         </div>
       </section>
 
@@ -117,33 +129,40 @@ export default function Home() {
             <strong>kind of business.</strong>
           </p>
 
-          <span>Plumbing & trades</span>
-          <span>Landscaping</span>
-          <span>Interior design</span>
-          <span>Clothing & lifestyle</span>
+          {industries.map((industry) => {
+            const IndustryIcon = industry.icon;
+            return (
+              <div className="industry-band-item" key={industry.label}>
+                <IndustryIcon strokeWidth={1.5} aria-hidden="true" />
+                <span>{industry.label}</span>
+                <ArrowRight className="industry-band-arrow" aria-hidden="true" />
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      <section className="section container">
-        <div className="section-heading">
+      <section className="section container home-services-intro">
+        <div className="section-heading home-section-heading">
           <div>
             <Eyebrow>What we do</Eyebrow>
 
             <h2>
-              A better website.
-              <br />A bigger first impression.
+              Built to grow <span className="blue-text">your business</span>
             </h2>
           </div>
 
           <div className="service-note">
-            <h3>Built to grow your business</h3>
-
             <p>
               A good website should build trust before someone even contacts
               you. I focus on clear design, fast performance, and making it easy
               for visitors to understand your business, reach out, and become
               customers.
             </p>
+            <Link className="text-link service-note-link" href="/services">
+              Explore services
+              <ArrowRight />
+            </Link>
           </div>
         </div>
 
