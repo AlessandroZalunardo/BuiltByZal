@@ -15,7 +15,7 @@ Open http://localhost:3000. Keep the terminal running while you use the site.
 
 ## Connect the contact form
 
-All consultation emails go to **alessandro.zalunardo@gmail.com**. The visitor’s email is used as the reply-to address, so clicking Reply answers that person.
+All consultation emails go to **alessandro.zalunardo05@gmail.com**. The visitor’s email is used as the reply-to address, so clicking Reply answers that person.
 
 The uploaded project did not include an email API key. The email code is fixed, but real sending needs this one-time setup:
 
@@ -25,7 +25,7 @@ The uploaded project did not include an email API key. The email code is fixed, 
 4. Set `CONTACT_FROM_EMAIL` to a sender authorised by your Resend account.
 5. Restart `npm run dev` after saving the file.
 
-For an initial test, these settings work when your Resend account email is **alessandro.zalunardo@gmail.com**:
+For an initial test, these settings work when your Resend account email is **alessandro.zalunardo05@gmail.com**:
 
 ```env
 RESEND_API_KEY=re_your_actual_key
