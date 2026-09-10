@@ -106,10 +106,6 @@ export default function Home() {
             priority
           />
 
-          <div className="art-caption">
-            <span>IDEA → DESIGN → BUILD</span>
-            <span>BBZ / 01</span>
-          </div>
         </div>
       </section>
 
