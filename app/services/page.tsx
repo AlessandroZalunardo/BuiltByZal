@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowUpRight,
   Check,
@@ -20,6 +21,10 @@ const services = [
     icon: Monitor,
     name: "Business websites",
     tag: "Turn visitors into conversations.",
+    image: "/images/business-website-demo.png",
+    imageAlt: "Business website concept designed by Built By Zal",
+    imageWidth: 1267,
+    imageHeight: 667,
     description:
       "A clear, professional home for your business. We put your services, your work, and your contact details where people need them, with a design that makes the right first impression.",
     features: [
@@ -37,6 +42,10 @@ const services = [
     icon: ShoppingBag,
     name: "Online stores",
     tag: "A shopping experience that feels like you.",
+    image: "/images/online-store-demo.png",
+    imageAlt: "Online store concept designed by Built By Zal",
+    imageWidth: 1267,
+    imageHeight: 667,
     description:
       "From a first collection to a growing catalogue, your online store should bring your brand to life and make finding the right product easy. We plan the right storefront and platform around what you sell.",
     features: [
@@ -54,6 +63,10 @@ const services = [
     icon: RefreshCw,
     name: "Website redesigns",
     tag: "Your next chapter deserves a fresh start.",
+    image: "/images/website-redesign-demo.png",
+    imageAlt: "Website redesign concept by Built By Zal",
+    imageWidth: 1222,
+    imageHeight: 555,
     description:
       "If your business has moved forward but your website hasn’t, let’s change that. We look at what’s working, what’s getting in the way, and what your customers actually need.",
     features: [
@@ -76,34 +89,42 @@ export default function Services() {
         description="A first website, a new online store, or a much-needed refresh. Let’s build the right thing for your business."
       />
       <section className="container service-details">
-        {services.map((service) => (
-          <article id={service.id} key={service.id} className="service-detail">
-            <div className="service-detail-label">
-              <span>{service.n}</span>
-              <service.icon strokeWidth={1.25} />
-              <h2>{service.name}</h2>
-            </div>
-            <div className="service-detail-content">
-              <h3>{service.tag}</h3>
-              <p>{service.description}</p>
-              <ul className="check-list">
-                {service.features.map((f) => (
-                  <li key={f}>
-                    <Check />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={`/contact?service=${encodeURIComponent(service.service)}`}
-                className="text-link"
-              >
-                Let’s talk about your project <ArrowUpRight />
-              </Link>
-            </div>
-          </article>
-        ))}
-      </section>
+  {services.map((service) => (
+    <article id={service.id} key={service.id} className="service-showcase">
+
+      <div className="service-showcase-info">
+        <div className="service-showcase-top">
+          <span>{service.n}</span>
+          <service.icon strokeWidth={1.25} />
+        </div>
+
+        <h2>{service.name}</h2>
+
+        <p className="service-showcase-description">
+          {service.description}
+        </p>
+
+        <Link
+          href={`/contact?service=${encodeURIComponent(service.service)}`}
+          className="service-showcase-link"
+        >
+          View example <ArrowUpRight />
+        </Link>
+      </div>
+
+      <div className="service-showcase-visual">
+        <Image
+          src={service.image}
+          alt={service.imageAlt}
+          width={1200}
+          height={800}
+          className="service-showcase-image"
+        />
+      </div>
+
+    </article>
+  ))}
+</section>
       <section className="section process-section">
         <div className="container">
           <div className="section-heading">
