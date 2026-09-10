@@ -24,7 +24,7 @@ export default function About() {
         </div>
 
   <img
-    src="/images/headshot.png"
+    src="/images/Headshot.png"
     alt="Alessandro Zalunardo"
     className="founder-photo"
     width={180}
