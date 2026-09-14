@@ -29,7 +29,8 @@ export function Brand({ footer = false }: { footer?: boolean }) {
         className="brand-logo"
       />
       <span>
-        Built By Zal<span className="brand-period">.</span>
+        Built By <span className="brand-zal">Zal</span>
+        <span className="brand-period">.</span>
       </span>
     </Link>
   );
