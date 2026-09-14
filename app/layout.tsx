@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
   description:
     "Custom websites for plumbing companies, landscapers, interior designers, clothing brands, and growing businesses. Thoughtfully designed. Personally built. Based in Ontario.",
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
 };
 export default function RootLayout({
   children,
