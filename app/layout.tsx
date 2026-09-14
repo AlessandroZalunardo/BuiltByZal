@@ -8,8 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Built By Zal",
   },
   description:
-    "Custom websites for plumbing companies, landscapers, interior designers, clothing brands, and growing businesses. Thoughtfully designed. Personally built. Based in Ontario.",
-  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
+    "Custom websites for plumbing companies, landscapers, interior designers, clothing brands, and growing businesses. Thoughtfully designed. Personally built.",
 };
 export default function RootLayout({
   children,
