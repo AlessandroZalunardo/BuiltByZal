@@ -2815,7 +2815,7 @@ select:invalid {
 .brand-zal {
   color: #5b7cff;
 }
-/* Homepage: one full-screen composition on desktop and mobile. */
+/* Homepage: immersive desktop hero, with an uncropped image on small screens. */
 .site-header.home-header {
   position: absolute;
   width: 100%;
@@ -2945,28 +2945,148 @@ select:invalid {
     background: #0b1220f5;
     backdrop-filter: blur(18px);
   }
-  .home-hero .hero { padding: 108px 22px 40px; }
-  .home-hero .hero-studio-image { object-position: 68% center; }
-  .home-hero .hero-art::after {
-    background: linear-gradient(180deg, #080c1333, #080c137d 28%, #080c13b3 72%, #080c13 100%);
+}
+
+/* Keep the photograph's natural proportions. Each piece of copy has its own
+   row, so the lettering on the laptop never sits behind the page's text.
+   Short screens can scroll normally instead of shrinking or clipping content. */
+@media (max-width: 800px), (max-width: 1000px) and (max-height: 500px) {
+  .home-hero {
+    background: radial-gradient(ellipse at 50% 38%, #11203c 0%, #080c13 65%);
   }
-  .home-hero .hero-copy { max-width: 580px; }
-  .home-hero .eyebrow { max-width: 100%; font-size: 9px; letter-spacing: 1px; gap: 8px; padding: 8px 12px; }
-  .home-hero .hero h1 { font-size: clamp(36px, 8.8vw, 60px); margin: 22px 0 20px; }
-  .home-hero .hero-description { font-size: 17px; }
-  .home-hero .hero-detail { font-size: 14px; max-width: 390px; }
-  .home-hero .hero-actions { margin-top: 24px; }
-  .home-hero .hero-note { max-width: 330px; font-size: 11px; margin-top: 22px; }
+  .home-hero .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    justify-items: center;
+    gap: 0;
+    padding: 98px 0 32px;
+  }
+  .home-hero .hero-copy {
+    display: contents;
+    text-shadow: none;
+  }
+  .home-hero .hero-copy > * {
+    grid-column: 1;
+    min-width: 0;
+    text-align: center;
+  }
+  .home-hero .eyebrow {
+    grid-row: 1;
+    max-width: calc(100% - 40px);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    backdrop-filter: none;
+    gap: 8px;
+    font-size: clamp(9px, 2.2vw, 11px);
+    line-height: 1.6;
+    letter-spacing: 1px;
+  }
+  .home-hero .hero h1 {
+    grid-row: 2;
+    width: calc(100% - 40px);
+    max-width: 640px;
+    margin: 18px 0 0;
+    font-size: clamp(34px, 9.6vw, 62px);
+    line-height: 1.08;
+    letter-spacing: -0.05em;
+  }
+  .home-hero .hero-art {
+    grid-column: 1;
+    grid-row: 3;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 18px 0 0;
+    align-self: start;
+  }
+  .home-hero .hero-studio-image {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+    object-position: center;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 94%, transparent 100%);
+  }
+  .home-hero .hero-art::after {
+    background: none;
+  }
+  .home-hero .hero-description {
+    grid-row: 4;
+    width: calc(100% - 48px);
+    max-width: 440px;
+    margin: 18px 0 0;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .home-hero .hero-description .desktop-break { display: initial; }
+  .home-hero .hero-actions {
+    grid-row: 5;
+    width: calc(100% - 48px);
+    max-width: 340px;
+    margin: 20px 0 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+  .home-hero .hero-actions > a {
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 20px !important;
+    font-size: 14px;
+  }
+  .home-hero .hero-actions .text-link {
+    min-height: 44px;
+    border-color: transparent;
+    background: transparent;
+    color: #d5dff2;
+  }
+  .home-hero .hero-actions .text-link:hover { color: #a6baff; }
+  .home-hero .hero-detail {
+    grid-row: 6;
+    width: calc(100% - 48px);
+    max-width: 440px;
+    margin: 18px 0 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #a6b4ca;
+  }
+  .home-hero .hero-note {
+    grid-row: 7;
+    width: calc(100% - 48px);
+    max-width: 340px;
+    margin: 18px 0 0;
+    font-size: 11px;
+    line-height: 1.65;
+    color: #94a3bc;
+  }
 }
-@media (max-width: 500px) {
-  .home-hero .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
-  .home-hero .hero-actions > a { width: min(100%, 280px); min-height: 50px; font-size: 14px; }
+@media (max-width: 380px) {
+  .home-hero .hero { padding-top: 90px; }
+  .home-hero .hero h1 { margin-top: 14px; }
+  .home-hero .hero-description { font-size: 15px; }
 }
-@media (max-height: 700px) and (max-width: 800px) {
-  .home-hero .hero { padding-top: 88px; padding-bottom: 28px; }
-  .home-hero .hero h1 { margin-block: 16px; }
-  .home-hero .hero-actions { margin-top: 18px; }
-  .home-hero .hero-note { margin-top: 16px; }
+@media (min-width: 601px) and (max-width: 1000px) and (max-height: 500px) {
+  .home-hero .hero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    padding: 102px 24px 28px;
+  }
+  .home-hero .hero h1 { width: 100%; font-size: clamp(30px, 4.7vw, 44px); }
+  .home-hero .eyebrow { max-width: 100%; font-size: 9px; }
+  .home-hero .hero-art { grid-column: 2; grid-row: 1 / 6; margin: 0; align-self: center; }
+  .home-hero .hero-description { grid-row: 3; width: 100%; font-size: 15px; }
+  .home-hero .hero-actions { grid-row: 4; width: 100%; }
+  .home-hero .hero-detail { grid-column: 1 / -1; grid-row: 6; max-width: 640px; }
+  .home-hero .hero-note { grid-column: 1 / -1; grid-row: 7; max-width: 640px; }
 }
 
 /* Client guide: readable steps, a preparation checklist, and native FAQs. */
