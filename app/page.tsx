@@ -111,10 +111,11 @@ export default function Home() {
           <div className="hero-art" aria-hidden="true">
             <Image
               className="hero-studio-image"
-              src="/images/home-hero-studio.png"
+              src="/images/home-hero-portfolio.png"
               alt=""
               width={912}
               height={585}
+              sizes="100vw"
               priority
             />
           </div>

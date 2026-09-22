@@ -10,6 +10,7 @@ const links = [
   ["/services", "Services"],
   ["/industries", "Industries"],
   ["/styles", "Styles"],
+  ["/process", "Process"],
   ["/about", "About"],
   ["/contact", "Contact"],
 ];
@@ -65,7 +66,7 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header ref={header} className="site-header">
+    <header ref={header} className={`site-header${path === "/" ? " home-header" : ""}`}>
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
