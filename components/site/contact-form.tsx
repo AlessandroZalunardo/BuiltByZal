@@ -361,10 +361,10 @@ export default function ContactForm() {
       </form>
       <p className="direct-email">Prefer email?{" "}
   <a
-    href="mailto:Alessandrozalunardo05@gmail.com"
-    className="font-semibold text-[#5B8CFF] hover:text-[#7CA5FF] hover:underline transition-colors"
+      href="mailto:info@builtbyzal.com"    
+      className="font-semibold text-[#5B8CFF] hover:text-[#7CA5FF] hover:underline transition-colors"
   >
-    Alessandrozalunardo05@gmail.com
+    info@builtbyzal.com
   </a>
 </p>
 </div>

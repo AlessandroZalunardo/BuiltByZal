@@ -69,7 +69,7 @@ export default function Contact() {
           Your details are used to respond to your enquiry. The form sends them
           through our email provider to Built By Zal’s inbox; they are not
           displayed publicly. To request a correction or deletion, email
-          alessandro.zalunardo@gmail.com.
+          info@Builtbyzal.com
         </p>
       </section>
     </main>
